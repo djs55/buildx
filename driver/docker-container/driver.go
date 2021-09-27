@@ -122,6 +122,11 @@ func (d *Driver) create(ctx context.Context, l progress.SubLogger) error {
 					Target: containerBuildKitRootDir,
 				},
 			},
+			Resources: container.Resources{
+				// Place all buildkit containers inside this cgroup so limits can be attached
+				// to all build activity on the host.
+				CgroupParent: "/docker/buildx",
+			},
 		}
 		if d.netMode != "" {
 			hc.NetworkMode = container.NetworkMode(d.netMode)

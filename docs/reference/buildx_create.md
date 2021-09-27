@@ -130,7 +130,7 @@ Passes additional driver-specific options. Details for each driver:
 - `docker-container`
     - `image=IMAGE` - Sets the container image to be used for running buildkit.
     - `network=NETMODE` - Sets the network mode for running the buildkit container.
-    - `cgroup-parent=CGROUP` - Sets the cgroup parent of the buildkit container.
+    - `cgroup-parent=CGROUP` - Sets the cgroup parent of the buildkit container. Defaults to `/docker/buildx`.
     - Example:
 
       ```console
