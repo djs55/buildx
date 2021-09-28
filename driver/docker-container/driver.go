@@ -105,6 +105,9 @@ func (d *Driver) create(ctx context.Context, l progress.SubLogger) error {
 	cfg := &container.Config{
 		Image: imageName,
 		Env:   d.env,
+		Labels: map[string]string{
+			"org.mobyproject.buildx.driver": "docker-container",
+		},
 	}
 	if d.InitConfig.BuildkitFlags != nil {
 		cfg.Cmd = d.InitConfig.BuildkitFlags
